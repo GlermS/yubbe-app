@@ -1,0 +1,3 @@
+[submodule "yubbe-server"]
+	path = yubbe-server
+	url = https://github.com/GlermS/yubbe-app.git
