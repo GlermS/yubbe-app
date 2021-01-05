@@ -104,7 +104,12 @@ No lado do servidor, os dados de login são revalidados, para proteger o banco d
 Uma vez o login aprovido, os usuários são redirecionando para pagína de destino original.
 
 ### Dinâmica de chamadas
-Os us
+Os usuários, ao acessar o site, passam por uma verificação. Caso não tenham um token de autorização válido serão redirecionados para a página de login, mantendos as informações do path. Caso estejam conectados, o servidor verifica se usuário está inscrito na chamada. Caso esteja, o usuário é redirecionado para a sala de espera e servido informa se a chamada já foi iniciada, caso contrario o servidor retorna um status de erro informando que o usuário não está inscrito.
+
+Caso a chamada não tenha iniciada, os clientes esperam pelo inicio o e moderador tem opção de iniciar a chamada. Caso tenha iniciado, o cliente tem a opção de entrar na chamada. Quando o pedido é feito, o moderador é notificado e tem a opção de permitir ou não o acesso.
+
+Ao entrar na chamada, o frontend envia o handshaking. Em seguida o servidor verifica a sessão novamente e, caso aprovado, envia o token de acesso à chamada.
+Todos os usuários participantes da chamada ativa terão um token de acesso único à chamada que será enviado pelo servidor assim que a o usuário é conectado no websocket.Todos as mensagens enviadas para o servidor deverão ser no formato json e conterão esse codigo, caso contrario o servidor encerra a conexão.
 
 
 
