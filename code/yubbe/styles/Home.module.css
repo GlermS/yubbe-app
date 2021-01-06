@@ -114,6 +114,17 @@
   height: 1em;
 }
 
+.loginform *{
+  display: flex;
+  flex-flow: column;
+}
+
+.loginform button {
+  margin-top: 0.2rem;
+
+}
+
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

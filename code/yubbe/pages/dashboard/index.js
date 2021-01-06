@@ -1,19 +1,7 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import React from 'react'
-import LoginForm from '../src/components/login-form.js'
+import styles from '../../styles/Home.module.css'
 
-
-
-class Home extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      authentication: '',
-    }
-  }
-
-  render(){
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -21,8 +9,8 @@ class Home extends React.Component {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <LoginForm styleClass={styles.loginform}/>
+      <main styleClass={styles.main}>
+        Your site
       </main>
 
       <footer className={styles.footer}>
@@ -37,9 +25,4 @@ class Home extends React.Component {
       </footer>
     </div>
   )
-  }
 }
-
-
-
-export default Home;
