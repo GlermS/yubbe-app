@@ -1,43 +1,47 @@
-import React from 'react'
-import LoginAuthetication from '../authentication/login-authentication'
+import {useState} from 'react'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 
-class LoginForm extends React.Component {
-    constructor(props){
-      super(props);
-      this.state = {
-        email: '',
-        password:'',
-      }
+function LoginForm (props){
+    const [ email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const router = useRouter()
+
+    const handleChangeEmail = (event)=>{
+      setEmail( event.target.value)
     }
-    handleChange = (event)=>{
-        this.setState({[event.target.name]: event.target.value})
+    const handleChangePassword = (event)=>{
+      setPassword(event.target.value)
     }
-    handleSubmit = (event)=>{
-      let authentication = new LoginAuthetication()
-      let check = authentication.authenticate(this.state.email, this.state.password)
-      console.log(check)
-      if (check){
-        alert("Passou")
-      }else{
-        alert("Não passou")
-      }
+    const submitForm = async (event)=>{
+      event.preventDefault();
+      const resp = await axios({
+        url:'/api/login',
+        method: 'post',
+        data: {email, password}
+      }).then((response) => {
+        if(response.data.approved){
+          router.replace('/')
+        }
+
+      }).catch((error) => alert(error))  
+
     }
   
-    render() {
-      return(
-        <form className ={this.props.styleClass}>
-            <label>
-            <span>Email:</span>
-            <input type = 'email' name = "email" value = {this.state.email} onChange ={this.handleChange}></input>
-            </label>
-            <label>
-            <span>Senha:</span>
-            <input type = 'password'name = "password" value = {this.state.password} onChange ={this.handleChange}></input>
-            </label>
-            <button type="submit" onClick={this.handleSubmit}>Enviar</button>
-        </form>
-        );
-    }
+    return(
+      <form className ={props.styleClass} >
+          <label>
+          <span>Email:</span>
+          <input type = 'email' name = "email" value = {email} onChange ={handleChangeEmail}></input>
+          </label>
+          <label>
+          <span>Senha:</span>
+          <input type = 'password'name = "password" value = {password} onChange ={handleChangePassword}></input>
+          </label>
+          <input type="submit" value='Enviar' onClick={submitForm}></input>
+      </form>
+      );
+
   }
 
   export default LoginForm;

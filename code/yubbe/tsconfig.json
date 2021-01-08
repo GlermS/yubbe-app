@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/dashboard/index.js"  ],
+, "pages/dashboard/index.js", "src/database/DB/mysql.js", "src/database/DB/mongodb/connect.js", "src/database/DB/mongodb/connect.js", "src/database/DB/mongodb/models.js", "src/database/DB/mongodb/mongodb.ts"  ],
   "exclude": [
     "node_modules"
   ]

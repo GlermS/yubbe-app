@@ -1,28 +1,22 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import React from 'react'
-import LoginForm from '../src/components/login-form.js'
+import styles from '../../../styles/Home.module.css'
+import {useState} from 'react'
+import SignUpForm from '../../components/signup-form'
 
 
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      authentication: '',
-    }
-  }
-
-  render(){
+function SignUp(req, res) {
+  const [auth, setAuth] = useState();
+  
   return (
     <div className={styles.container}>
       <Head>
         <title>Yubbe English Club</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      {auth}
       <main className={styles.main}>
-        <LoginForm styleClass={styles.loginform}/>
+        <SignUpForm styleClass={styles.loginform} authenticationToken = {setAuth}/>
       </main>
 
       <footer className={styles.footer}>
@@ -37,9 +31,7 @@ class Home extends React.Component {
       </footer>
     </div>
   )
-  }
+  
 }
 
-
-
-export default Home;
+export default SignUp;

@@ -1,7 +1,16 @@
+import axios from 'axios'
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
+import {verifySession} from './api/session'
+import {useRouter} from 'next/router'
 
-export default function Home() {
+export default function Home(req, res) {
+  const router = useRouter()
+  const logoutFunc =async ()=>{
+    await axios.get('/api/logout')
+    router.replace('/login')
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,6 +20,7 @@ export default function Home() {
 
       <main styleClass={styles.main}>
         Your site
+        <button onClick={logoutFunc}>Logout</button>
       </main>
 
       <footer className={styles.footer}>
@@ -25,4 +35,11 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+Home.getInitialProps = async (ctx)=>{
+  
+  const resp  =await verifySession(ctx);
+
+  return resp
 }
