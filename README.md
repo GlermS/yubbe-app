@@ -25,13 +25,14 @@
 - **Agendamento de chamadas**
   1. Os usuários logam na plataforma.
   2. Os usuários selecionam o tipo de acesso (como aluno de algum curso ou independente)
-  3. Os usuários têm acesso à lista de reuniões permitidas dependente do tipo de acesso e vagas), ordenadas e filtradas por tema, data, horário, mediador e nível.
+  3. Os usuários têm acesso à lista de reuniões disponíveis dependente do tipo de acesso e vagas), ordenadas e filtradas por tema, data, horário, mediador e nível.
   4. O usuário seleciona reunião.
   5. O usuário lê a descrição da reunião.
   6. O usuário seleciona se vai participar da reunião escolhida.
   7. Caso decida participar, o usuário solicita o registro.
   8. Verificar se ainda há vagas e se o usuário já atingiu o seu limite semanal.
-  9. O usuário recebe um retorno confirmando o registro da chamada ou uma falha por uma devida causa.
+  9. O usuário recebe um retorno confirmando o registro da chamada por email e whatsapp ou uma falha por uma devida causa.
+ 10. Os usuários tem a opção de escolher ser notificados 1h antes da chamada.
 - **Criação da chamadas**
   1. Os mediadores logam na plataforma.
   2. Os mediadores selecionam o tipo de acesso (como mediador de algum curso ou independente).
@@ -90,11 +91,7 @@
   8. O usuário recebe um retorno confirmando o cancelamento da chamada ou uma falha por uma devida causa.
 
 ## MVP
-Os usuários do sistema logam na plataforma de acessa as chamadas. Os usuários(clientes e monitores) têm acesso a lista ordena a de chamadas. Os clientes tem a opção de se registra na chamada, enquanto os monitores tem a opção de criar ou cancelar uma chamada.
-
-Os usuário de entrarem deve espera a liberação do monitor para acessar a chamada. Durante a chamadas os usuários podem tanto abrir e fecha o canal de video quanto o de audio. Também há um canal de chat disponível, onde será permitido apenas troca de mensagens em texto.
-
-Os administradores de acesso a todas as funcionalidades dos demais usuários e podem adicionar, alterar e excluir outros usuários.
+Os usuários do sistema logam na plataforma de acesso às chamadas. Os usuários(clientes e monitores) têm acesso a lista ordena a de chamadas disponíveis. Os clientes têm a opção de se registrar na chamada, enquanto os monitores tem a opção de mediar uma chamada. Os usuário deve espera a liberação do monitor para acessar a chamada, que será realizada através do microsoft team. 
 
 ## Descrição técnica do MVP
 
@@ -120,7 +117,8 @@ Todos os usuários participantes da chamada ativa terão um token de acesso úni
 Links das documentações dos pacotes utilizados.
 
 ### Frontend
-
+-Next.js
+  - https://nextjs.org/docs/getting-started
 - Framework -  React
   - https://pt-br.reactjs.org/docs/getting-started.html
 - PWA
@@ -128,28 +126,18 @@ Links das documentações dos pacotes utilizados.
 
 ### Backend
 
-- Linguagem - Golang
-  - https://golang.org/doc/
+- Linguagem - Javascript (Nodes.js/typescript)
+  - https://nodejs.org/en/docs/
 - Criptografia das senhas - Bcrypt
-  - https://pkg.go.dev/golang.org/x/crypto/bcrypt
-- Autentificação de sessão - Gorilla session e securecoockie
-  - https://github.com/gorilla/sessions
-  - https://github.com/gorilla/securecookie
+  - https://www.npmjs.com/package/bcrypt
+- Autentificação de sessão - JsonWebToken
+  - https://www.npmjs.com/package/jsonwebtoken
+- Manipulação de Banco de dados - Mongoose
+ - https://www.npmjs.com/package/mongoose
 
 
 
 ### Banco de Dados
 
-- Mysql
-
-
-
-## Iniciando o servidor 
-
-[Voltar para o indice](#indice)
-
-Comando do terminal para iniciar o servidor
-
-```(golang)
- go run server.go
-```
+- MongoDB
+ - https://www.mongodb.com/
