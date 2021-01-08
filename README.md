@@ -14,7 +14,7 @@
 
 [Voltar para o indice](#indice)
 
-![alt text](https://github.com/GlermS/yubbe-server/blob/master/readme-files/Yubbe%402x.png "Logo Title Text 1")
+![alt text](https://github.com/GlermS/yubbe-server/blob/master/readme-files/Yubbe.png "Logo Title Text 1")
 
 
 
