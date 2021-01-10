@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../../../styles/Home.module.css'
+import styles from '../../../styles/Login.module.css'
 import Router from 'next/router'
 import axios from 'axios'
 import LoginForm from '../../components/login-form.js'
@@ -22,12 +22,10 @@ async function verifySession(ctx){
   
    
   if (resp.status ===200 && !ctx.req){
-    //console.log('client')
     Router.replace('/')
     return
   }
   if(resp.status ===200 && ctx.req){
-    //console.log('server')
     ctx.res?.writeHead(302,{
       Location:'http://localhost:3000'
     });
@@ -47,7 +45,7 @@ function Login(req, res) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <LoginForm styleClass={styles.loginform}/>
+        <LoginForm styleclass={styles.loginform}/>
       </main>
 
       <footer className={styles.footer}>
@@ -56,8 +54,7 @@ function Login(req, res) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          <img src="/yubbe-logo.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>

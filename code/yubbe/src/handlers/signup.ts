@@ -18,7 +18,6 @@ class SignupHandler{
                      }}
             ).catch((err)=>{
                 return {approved:false, name:'', authToken: '', message:err.toString()}})
-            //console.log(resp)
             return resp 
         }
     }

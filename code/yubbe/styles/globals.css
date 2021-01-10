@@ -4,6 +4,15 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 18px;
+  }
+button {
+  margin-top: 0.3rem;
+  border: 0;
+  padding:0.3rem 1rem;
+  background:#39386e;
+  color:#eaeaea
+
 }
 
 a {

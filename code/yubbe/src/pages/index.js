@@ -3,9 +3,11 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import {verifySession} from './api/session'
 import {useRouter} from 'next/router'
+import CallsList from '../components/callls-list'
 
-export default function Home(req, res) {
+export default function Home(ctx) {
   const router = useRouter()
+
   const logoutFunc =async ()=>{
     await axios.get('/api/logout')
     router.replace('/login')
@@ -18,9 +20,10 @@ export default function Home(req, res) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main styleClass={styles.main}>
-        Your site
-        <button onClick={logoutFunc}>Logout</button>
+      <main className={styles.main}>
+        <header className={styles.header}><h1>Welcome, {ctx.data.name}!</h1>  <button onClick={logoutFunc} className={styles.logoutbutton}>Logout</button></header>
+        <CallsList />
+       
       </main>
 
       <footer className={styles.footer}>
@@ -29,8 +32,7 @@ export default function Home(req, res) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          <img src="/yubbe-logo.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
@@ -38,8 +40,6 @@ export default function Home(req, res) {
 }
 
 Home.getInitialProps = async (ctx)=>{
-  
   const resp  =await verifySession(ctx);
-
   return resp
 }

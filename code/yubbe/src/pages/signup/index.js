@@ -1,12 +1,10 @@
 import Head from 'next/head'
-import styles from '../../../styles/Home.module.css'
-import {useState} from 'react'
+import styles from '../../../styles/Login.module.css'
 import SignUpForm from '../../components/signup-form'
 
 
 
 function SignUp(req, res) {
-  const [auth, setAuth] = useState();
   
   return (
     <div className={styles.container}>
@@ -14,9 +12,8 @@ function SignUp(req, res) {
         <title>Yubbe English Club</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {auth}
       <main className={styles.main}>
-        <SignUpForm styleClass={styles.loginform} authenticationToken = {setAuth}/>
+        <SignUpForm styleclass={styles.loginform}/>
       </main>
 
       <footer className={styles.footer}>
@@ -25,8 +22,7 @@ function SignUp(req, res) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          <img src="/yubbe-logo.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>

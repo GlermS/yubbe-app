@@ -29,7 +29,7 @@ function LoginForm (props){
     }
   
     return(
-      <form className ={props.styleClass} >
+      <form className ={props.styleclass} >
           <label>
           <span>Email:</span>
           <input type = 'email' name = "email" value = {email} onChange ={handleChangeEmail}></input>
@@ -38,7 +38,7 @@ function LoginForm (props){
           <span>Senha:</span>
           <input type = 'password'name = "password" value = {password} onChange ={handleChangePassword}></input>
           </label>
-          <input type="submit" value='Enviar' onClick={submitForm}></input>
+          <button type="submit" onClick={submitForm}>Enviar</button>
       </form>
       );
 

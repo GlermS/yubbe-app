@@ -1,4 +1,6 @@
 import UserModel from './models/User'
+import CallModel from './models/Call'
+
 import dbConnect from './dbConnect'
 import DataBaseInterface,{UserInterface} from '../../interface/database';
 import {hash,compare} from 'bcrypt'
@@ -32,7 +34,6 @@ class MongoDB implements DataBaseInterface{
                     return new User(false, '', '', '');
                 }
             });
-            //console.log(user)
             return user;
         }catch(error){
             return new User(false, '', '', '')
@@ -44,21 +45,22 @@ class MongoDB implements DataBaseInterface{
         var user = await hash(password,12).then(async(hash)=>{
             const resp = await UserModel.create({name:name, email: email, password:hash,  authorization:authorization}).then(data=>{
                 if(data!=undefined){
-                    //console.log("Enviando novo user")
                     return new User(true, data.name, data.id, data.authorization)
                     }
-                //console.log('Não cheguei a enviar o novo user')
                 return new User(false, '', '', '')
                 }).catch((err)=>{
-                //console.log('Error no create')
                 return new User(false, '', '', '')
                  })
-            // console.log(resp)
             return resp
-            //console.log(user)
         })
-        //console.log(user)
         return user;   
+    }
+    
+    async listCalls(){
+        dbConnect()
+        const resp = await CallModel.find({}).then((data)=>{return data}).catch((err)=>{return {error: err.toString()}})
+        return resp
+
     }
 
 

@@ -23,7 +23,7 @@ function SignUpForm (props){
     }
   
     return(
-      <form className ={props.styleClass} >
+      <form className ={props.styleclass} >
           <label>
           <span>Nome:</span>
           <input type = 'text' name = "name" value = {name} onChange ={(e)=>{setName(e.target.value)}}></input>
@@ -40,7 +40,7 @@ function SignUpForm (props){
           <span>Tipo:</span>
           <input type = 'text' name = "authorization" value = {authorization} onChange ={(e)=>{setAuth(e.target.value)}}></input>
           </label>
-          <input type="submit" value='Enviar' onClick={submitForm}></input>
+          <button type="submit" onClick={submitForm}>Enviar</button>
       </form>
       );
 
