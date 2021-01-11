@@ -1,4 +1,4 @@
-import styles from '../../../styles/Login.module.css'
+import '../../styles/Login.module.css'
 import axios from 'axios'
 import LoginForm from '../../components/login-form.js'
 import React from 'react'
@@ -24,7 +24,7 @@ class Login extends React.Component{
       return {msg:error, status:401}
     })
     
-     
+     /*
     if (resp.status ===200 && !ctx.req){
       Router.replace('/')
       return
@@ -35,7 +35,7 @@ class Login extends React.Component{
       });
       ctx.res?.end();
       return
-    }
+    }*/
   
     return resp
   }
@@ -49,22 +49,18 @@ class Login extends React.Component{
 
   render(){
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Yubbe English Club</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <LoginForm styleclass={styles.loginform}/>
+    <div className="container">
+      <main className="main">
+        <LoginForm styleclass="loginform"/>
       </main>
 
-      <footer className={styles.footer}>
+      <footer className="footer">
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/yubbe-logo.svg" alt="Vercel Logo" className={styles.logo} />
+          <img src="/yubbe-logo.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
     </div>

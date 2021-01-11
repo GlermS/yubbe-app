@@ -1,11 +1,9 @@
 import {useState} from 'react'
 import axios from 'axios'
-import { useRouter } from 'next/router'
 
 function LoginForm (props){
     const [ email, setEmail] = useState()
     const [password, setPassword] = useState()
-    const router = useRouter()
 
     const handleChangeEmail = (event)=>{
       setEmail( event.target.value)
@@ -20,8 +18,9 @@ function LoginForm (props){
         method: 'post',
         data: {email, password}
       }).then((response) => {
+
         if(response.data.approved){
-          router.replace('/')
+          //router.replace('/')
         }
 
       }).catch((error) => alert(error))  
