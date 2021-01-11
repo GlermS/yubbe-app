@@ -18,7 +18,7 @@ function SignUpForm (props){
         data: {name, email, password, authorization}
       }).then((response) => {
         router.replace('/login')
-      }).catch((error) => alert(error))  
+      })//.catch((error) => alert(error))  
 
     }
   
