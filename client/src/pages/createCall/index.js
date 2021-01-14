@@ -1,12 +1,12 @@
 import './style.css'
 import React from 'react'
-import SignUpForm from '../../components/signup-form.js'
+import CreateCallForm from '../../components/create-call-form.js'
 import { CookiesProvider } from 'react-cookie';
 import logo from "../../assets/logo.svg"
 
 
 
-class Signup extends React.Component{
+class CreateCall extends React.Component{
   
 /*
   static async getInitialProps(ctx) {
@@ -19,9 +19,9 @@ class Signup extends React.Component{
   render(){
   return (
     <div className="container">
-      <main className="main-signup">
+      <main className="main-create-call">
         <CookiesProvider>
-          <SignUpForm styleclass="loginform"/>
+          <CreateCallForm styleclass="loginform"/>
         </CookiesProvider>
       </main>
 
@@ -36,5 +36,5 @@ class Signup extends React.Component{
   
 }
 
-export default Signup;
+export default CreateCall;
 

@@ -2,23 +2,15 @@ import axios from 'axios'
 
 
 export async function verifySession(cookies){
-    console.log(cookies)
+    //console.log(cookies.cookies.authToken)
     const resp = await axios({
-      url:'http://localhost:5000/api/session',
+      url:process.env.REACT_APP_BACKEND_URI+'/api/session',
       method: 'get',
-      proxy:{
-          host: 'localhost',
-          port:5000
-      },
-      headers:{
-        "Access-Control-Allow-Origin": "*",
-        cookies:cookies
+      headers: {"Access-Control-Allow-Origin": "*", "authToken":cookies.authToken}
+    }).then((response) => {
+      return response
       }
-      }).then((response) => {
-        return {data: response.data, status: response.status}
-  
-    }).catch(error =>{
-      return {msg:error, status:401}
-    })
+    ).catch((error) =>{return {message: error.toString()}})
+
     return resp
 }

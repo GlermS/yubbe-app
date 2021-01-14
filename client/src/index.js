@@ -4,7 +4,8 @@ import './index.css';
 import Home from './pages';
 import SignUp from './pages/signup'
 import Login from './pages/login'
-
+import CreateCall from './pages/createCall'
+import { CookiesProvider } from 'react-cookie';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 ReactDOM.render(
@@ -12,14 +13,26 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
             <Route path="/signup">
-              <SignUp />
+              <CookiesProvider>
+               <SignUp />  
+              </CookiesProvider>
             </Route>
             <Route path="/login">
-              <Login />
+              <CookiesProvider>
+                <Login />
+              </CookiesProvider>
+            </Route>
+            <Route path="/createcall">
+              <CookiesProvider>
+                <CreateCall />
+              </CookiesProvider>
             </Route>
             <Route path="/">
-              <Home />
+              <CookiesProvider>
+                <Home />
+              </CookiesProvider>
             </Route>
+            
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

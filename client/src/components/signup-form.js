@@ -10,8 +10,9 @@ function SignUpForm (props){
     const submitForm = async (event)=>{
       event.preventDefault();
       
-      const resp = await axios({
-        url:'http://localhost:5000/api/signup',
+      //const resp = 
+      await axios({
+        url:process.env.REACT_APP_BACKEND_URI+'/api/signup',
         method: 'post',
         data: {name, email, password, authorization}
       }).then((response) => {
@@ -21,7 +22,7 @@ function SignUpForm (props){
     }
   
     return(
-      <form className ={props.styleclass} >
+      <form className ='signup-form' >
           <label>
           <span>Nome:</span>
           <input type = 'text' name = "name" value = {name} onChange ={(e)=>{setName(e.target.value)}}></input>
@@ -38,7 +39,10 @@ function SignUpForm (props){
           <span>Tipo:</span>
           <input type = 'text' name = "authorization" value = {authorization} onChange ={(e)=>{setAuth(e.target.value)}}></input>
           </label>
+          <div>
           <button type="submit" onClick={submitForm}>Enviar</button>
+          </div>
+          
       </form>
       );
 

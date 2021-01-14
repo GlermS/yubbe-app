@@ -1,0 +1,22 @@
+.main-create-call{
+    display: flex;
+    min-height: 85vh;
+    min-width: 90%;
+    max-width: 800px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.signup-form{
+    width:200px;
+    display: flex;
+    flex-direction: column
+}
+.signup-form label{
+    display:flex;
+    flex-direction: column;
+}
+

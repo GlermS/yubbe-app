@@ -1,0 +1,38 @@
+.main{
+    display: flex;
+    min-width: 90%;
+    max-width: 940px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.header{
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logoutbutton{
+    height: 2rem;
+}
+.calls{
+    display: flex;
+    flex-direction: column;
+}
+.calls-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.call-card{
+    margin:0.2rem;
+    padding:0.5rem;
+    border: 1px solid black;
+}
+
+

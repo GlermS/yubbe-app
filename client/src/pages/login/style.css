@@ -1,0 +1,21 @@
+.main-login{
+    display: flex;
+
+    min-width: 90%;
+    max-width: 800px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-form{
+    width:200px;
+    display: flex;
+    flex-direction: column
+}
+.login-form label{
+    display:flex;
+    flex-direction: column;
+}
+
