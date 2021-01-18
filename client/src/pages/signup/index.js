@@ -3,6 +3,7 @@ import React from 'react'
 import SignUpForm from '../../components/signup-form.js'
 import { CookiesProvider } from 'react-cookie';
 import logo from "../../assets/logo.svg"
+import {Link} from "react-router-dom"
 
 
 
@@ -29,7 +30,9 @@ class Signup extends React.Component{
         <p>
           Powered by: 
         </p>
+        <Link to="/">
         <img src={logo} alt="Yubbe Logo" className="logo" />
+        </Link>
       </footer>
     </div>
   )}

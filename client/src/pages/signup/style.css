@@ -1,9 +1,14 @@
 
-
+.main-signup{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
 .signup-form{
     width:200px;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+
 }
 .signup-form label{
     display:flex;

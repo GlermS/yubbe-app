@@ -46,7 +46,7 @@ class CallsList extends React.Component{
         }).catch(error =>{
           return {msg:error, status:401}
         })
-        console.log(resp)
+        //console.log(resp)
         return resp
       } 
 
@@ -76,6 +76,11 @@ class CallsList extends React.Component{
               return {data: response.data, status: response.status}
         
           }).catch(error =>{
+            if (error.response.status ===429){
+                alert("Você atingiu o seu limite semanal.")
+            }else if(error.response.status ===429){
+                alert("Desculpa, mas a Call já está lotada.")
+            }
             return {msg:error}
           })
         
@@ -134,6 +139,7 @@ class CallsList extends React.Component{
                 //console.log(date)
                 callsComp.push(
                     <div key={i} className = "call-card">
+                        <div className = "card-content">
                         <div>
                             <p className = "call-theme">{call.theme}</p>
                             {moderator}
@@ -141,7 +147,7 @@ class CallsList extends React.Component{
                             <p className = "call-date">Data: {date.getDate()} {meses[date.getMonth()]} {date.getFullYear()} às {date.getHours()}h</p>
                         </div>
                         
-                        
+                        </div>
                     </div>
                 )
             })
@@ -149,21 +155,21 @@ class CallsList extends React.Component{
         }
         if(calls.moderator){
             calls.moderator.forEach((call,i)=>{
-                var moderator = []
                 //console.log(call)
                 // const dateParser = Date.parse(call.date)
                 const date = new Date(call.date)
                 //console.log(date)
                 callsComp.push(
-                    <div key={i} className = "call-card" style={{borderColor:'red'}}>
+                    <div key={"M"+i} className = "call-card" style={{borderColor:'red'}}>
+                        <div className = "card-content">
                         <div>
-                        <p>Sou Moderador</p>
+                            <div className="moderator-signal-ball"></div>
                             <p className = "call-theme">{call.theme}</p>
                             
                             <p className = "call-occupation"><b>Ocupação:</b> {call.clients.length}</p>
                             <p className = "call-date">Data: {date.getDate()} {meses[date.getMonth()]} {date.getFullYear()} às {date.getHours()}h</p>
                         </div>
-                        
+                       </div> 
                         
                     </div>
                 )
@@ -186,17 +192,18 @@ class CallsList extends React.Component{
                 //console.log(date)
                 callsComp.push(
                     <div key={i} className = "call-card">
-                        <div>
+                        <div className = "card-content">
+                        <div className="card-description">
                             <p className = "call-theme">{call.theme}</p>
                             {moderator}
                             <p className = "call-occupation"><b>Ocupação:</b> {call.clients.length}</p>
                             <p className = "call-date">Data: {date.getDate()} {meses[date.getMonth()]} {date.getFullYear()} às {date.getHours()}h</p>
                         </div>
-                        <div>
+                        <div className="card-buttons">
+                            <button className= "moderate" id={call._id} onClick= {this.moderateCall} style ={this.specialAuthStyle()}>Moderate</button>
                             <button className= "join-call" id={call._id} onClick= {this.joinCall}>Join call</button>
-                            <button className= "join-call" id={call._id} onClick= {this.moderateCall} style ={this.specialAuthStyle()}>Moderate</button>
                         </div>
-                        
+                        </div>
                     </div>
                 )
             })

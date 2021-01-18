@@ -1,6 +1,7 @@
 import './style.css'
 import LoginForm from '../../components/login-form.js'
 import React from 'react'
+import {Link} from 'react-router-dom'
 import logo from "../../assets/logo.svg"
 
 
@@ -16,7 +17,10 @@ class Login extends React.Component{
         <p>
           Powered by: 
         </p>
+        <Link to="/">
         <img src={logo} alt="Yubbe Logo" className="logo" />
+        </Link>
+        
       </footer>
     </div>
   )}
