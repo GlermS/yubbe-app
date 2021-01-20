@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import {withCookies} from 'react-cookie'
-import {verifySession} from './session-verifier'
 
 
 class CreateCallForm extends React.Component{

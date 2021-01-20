@@ -1,7 +1,7 @@
 import './style.css'
 import { withCookies} from 'react-cookie';
 import {verifySession} from '../components/session-verifier'
-import CallsList from '../components/callls-list'
+import Dashboard from './dashboard'
 import {Redirect} from 'react-router-dom'
 import React from 'react'
 import logo from "../assets/logo.svg"
@@ -39,7 +39,7 @@ class Home extends React.Component{
     const { cookies } = this.props;
 
     const respo = await verifySession(cookies.cookies);
-    
+    console.log(respo)
     if(respo.data){
     if(respo.data.approved){
       if(!this.state.session){
@@ -50,6 +50,7 @@ class Home extends React.Component{
         this.setState({name:respo.data.name})
       }
       if(respo.data.authorization){
+        console.log('Updating')
         this.setState({auth:respo.data.authorization})
       }
     }else{
@@ -73,12 +74,14 @@ class Home extends React.Component{
   }
 
   render(){
+    console.log(this.state)
   return (
+    
     <div className="container">
       {this.redirect()}
       <main className="main">
         <header className="header"><h1>Welcome, {this.state.name}!</h1>  <button onClick={this.logoutFunc} className="logoutbutton">Logout</button></header>
-        <CallsList auth = {this.state.auth} username ={this.state.name}/>
+        <Dashboard auth = {this.state.auth} username ={this.state.name}/>
       </main>
 
       <footer className="footer">

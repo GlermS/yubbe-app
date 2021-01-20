@@ -1,13 +1,14 @@
 {
-  "name": "outroteste",
+  "name": "yubbefrontend",
   "version": "0.1.0",
+  "homepage": "https://yubbe.netlify.app",
   "private": true,
-  "proxy": "http://localhost:3000/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "netlify-cli": "^3.2.3",
     "react": "^17.0.1",
     "react-cookie": "^4.0.3",
     "react-cookies": "^0.1.1",

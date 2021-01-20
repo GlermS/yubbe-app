@@ -6,11 +6,11 @@ import SignUp from './pages/signup'
 import Login from './pages/login'
 import CreateCall from './pages/createCall'
 import { CookiesProvider } from 'react-cookie';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {HashRouter as Router, Switch, Route} from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <Switch>
             <Route path="/signup">
               <CookiesProvider>
@@ -34,7 +34,7 @@ ReactDOM.render(
             </Route>
             
       </Switch>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
